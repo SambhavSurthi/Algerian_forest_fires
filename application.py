@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 from sklearn.pipeline import Pipeline
 from flask import Flask,render_template,request,jsonify
-app = Flask(__name__)
+application = Flask(__name__)
+app=application
 
 #models
 liModel=pickle.load(open('models/linear_regression.pkl','rb'))
@@ -58,4 +59,4 @@ def eda():
     return render_template('EDA_report.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

@@ -30,11 +30,12 @@ The system includes:
 - `DMC` - Duff Moisture Code
 - `DC` - Drought Code
 - `ISI` - Initial Spread Index
+- `BUI` - Buildup Index
 
 **Target Features:**
 - `FWI` - Fire Weather Index (for regression)
 - `Classes` - Fire/Not Fire classification (for classification)
-- `BUI` - Buildup Index
+
 
 ### Files
 - `Algerian_forest_fires_dataset.csv` - Original raw dataset
