@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algerian Forest Fire Prediction</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-green-700 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-6 fade-in">
+      <h1 class="text-3xl font-bold tracking-wide">
+        🔥 Algerian Forest Fire Prediction System
+      </h1>
+      <p class="mt-2 text-green-100">
+        End-to-end Machine Learning application deployed on AWS
+      </p>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-6 py-14 fade-in">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-2xl font-bold mb-4">
+          What does this project do?
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          This project predicts the <strong>Fire Weather Index (FWI)</strong>
+          using environmental and meteorological data from two Algerian regions:
+          <strong>Bejaia</strong> and <strong>Sidi-Bel Abbes</strong>.
+          The system helps identify potential forest fire risks using
+          machine learning models.
+        </p>
+
+        <a href="/predict"
+           class="inline-block mt-6 bg-green-700 text-white px-6 py-3 rounded-lg
+                  font-semibold hover:bg-green-800 hover:scale-105
+                  transition-all duration-300 shadow-lg">
+          🔍 Go to Prediction Page
+        </a>
+      </div>
+
+      <div class="bg-white shadow-xl rounded-xl p-6 hover:shadow-2xl transition">
+        <h3 class="text-xl font-semibold mb-4">📊 Model Performance</h3>
+        <ul class="space-y-3 text-gray-700">
+          <li>✔ Algorithms: Linear, Ridge, Lasso, ElasticNet</li>
+          <li>✔ R² Score: <strong>~97.5%</strong></li>
+          <li>✔ Mean Squared Error: <strong>~1.10</strong></li>
+          <li>✔ Scaled & regularized pipeline</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="bg-white py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-10 text-center fade-in">
+        ⚙️ End-to-End Workflow
+      </h2>
+
+      <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+
+        <!-- Step Cards -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+          <h4 class="font-semibold mb-2">1️⃣ Data Collection</h4>
+          <p class="text-sm text-gray-600">
+            Meteorological and fire index data collection.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+          <h4 class="font-semibold mb-2">2️⃣ Data Cleaning</h4>
+          <p class="text-sm text-gray-600">
+            Handling missing values, encoding regions, and corrections.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+          <h4 class="font-semibold mb-2">3️⃣ Feature Engineering</h4>
+          <p class="text-sm text-gray-600">
+            Scaling and preparing features for modeling.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+          <h4 class="font-semibold mb-2">4️⃣ Model Training</h4>
+          <p class="text-sm text-gray-600">
+            Regression models trained and evaluated using R² and MSE.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+          <h4 class="font-semibold mb-2">5️⃣ Flask App</h4>
+          <p class="text-sm text-gray-600">
+            Developed a Flask web application for real-time predictions.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+          <h4 class="font-semibold mb-2">6️⃣ AWS Deployment</h4>
+          <p class="text-sm text-gray-600">
+            CI/CD deployment using AWS CodePipeline & Elastic Beanstalk.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 mt-14">
+    <div class="max-w-7xl mx-auto px-6 py-10 text-center">
+      <p class="font-semibold text-white text-lg">Sambhav Surthi</p>
+      <p class="text-sm mt-1">Machine Learning Engineer | AWS Deployed Project</p>
+      <p class="text-sm mt-1">
+        Algerian Forest Fires Prediction using Flask, Scikit-learn & AWS
+      </p>
+      <div class="flex justify-center space-x-6 mt-4">
+
+        <!-- Email -->
+        <a href="mailto:2300031622cseelge@gmail.com" class="hover:text-white transition" title="Email">
+          📧
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/sambhavsurthi" target="_blank"
+           class="hover:text-white transition" title="LinkedIn">
+          🔗
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/SambhavSurthi" target="_blank"
+           class="hover:text-white transition" title="GitHub">
+          🐙
+        </a>
+
+        <!-- Website -->
+        <a href="https://sambhavsurthi.in" target="_blank"
+           class="hover:text-white transition" title="Portfolio Website">
+          🌐
+        </a>
+
+      </div>
+      <p class="text-xs mt-4 text-gray-400">
+        © 2026 | Built with Python • Flask • AWS • Tailwind CSS
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

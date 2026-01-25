@@ -7,3 +7,4 @@ pandas
 plotly
 scikit-learn
 ydata-profiling
+flask

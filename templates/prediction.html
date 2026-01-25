@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Fire Prediction</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    .fade-in {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-green-700 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Forest Fire Predictor</h1>
+
+      <div class="space-x-4">
+        <a href="/" class="hover:text-green-200 transition">Home</a>
+        <a href="/eda"
+           class="bg-white text-green-700 px-4 py-2 rounded-lg font-semibold
+                  hover:bg-green-100 transition shadow">
+          View EDA
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Form Section -->
+  <section class="max-w-7xl mx-auto px-6 py-12 fade-in">
+    <form method="POST" action="/predict"
+          class="bg-white shadow-xl rounded-xl p-8">
+
+      <h2 class="text-2xl font-bold mb-8 text-center">
+        Fire Weather Index Prediction
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Day -->
+        <div>
+          <label class="font-semibold">Day</label>
+          <input type="number" name="day" placeholder="e.g. 15"
+            title="Day of the month (1–31)"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- Month -->
+        <div>
+          <label class="font-semibold">Month</label>
+          <input type="number" name="month" placeholder="e.g. 7"
+            title="Month number (1–12)"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- Year -->
+        <div>
+          <label class="font-semibold">Year</label>
+          <input type="number" name="year" placeholder="e.g. 2012"
+            title="Year of observation"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- Temperature -->
+        <div>
+          <label class="font-semibold">Temperature (°C)</label>
+          <input type="number" step="any" name="Temperature" placeholder="e.g. 30"
+            title="Average daily temperature in Celsius"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- RH -->
+        <div>
+          <label class="font-semibold">Relative Humidity (%)</label>
+          <input type="number" step="any" name="RH" placeholder="e.g. 55"
+            title="Relative humidity percentage"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- Ws -->
+        <div>
+          <label class="font-semibold">Wind Speed (km/h)</label>
+          <input type="number" step="any" name="Ws" placeholder="e.g. 15"
+            title="Average wind speed in km/h"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- Rain -->
+        <div>
+          <label class="font-semibold">Rain (mm)</label>
+          <input type="number" step="any" name="Rain" placeholder="e.g. 0"
+            title="Rainfall amount in millimeters"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- FFMC -->
+        <div>
+          <label class="font-semibold">FFMC</label>
+          <input type="number" step="any" name="FFMC" placeholder="e.g. 85"
+            title="Fine Fuel Moisture Code"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- DMC -->
+        <div>
+          <label class="font-semibold">DMC</label>
+          <input type="number" step="any" name="DMC" placeholder="e.g. 110"
+            title="Duff Moisture Code"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- DC -->
+        <div>
+          <label class="font-semibold">DC</label>
+          <input type="number" step="any" name="DC" placeholder="e.g. 400"
+            title="Drought Code"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <!-- ISI -->
+        <div>
+          <label class="font-semibold">ISI</label>
+          <input type="number" step="any" name="ISI" placeholder="e.g. 10"
+            title="Initial Spread Index"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <div>
+          <label class="font-semibold">BUI</label>
+          <input type="number" step="any" name="BUI" placeholder="e.g. 10"
+            title="BUI"
+            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <button type="submit"
+          class="bg-green-700 text-white px-8 py-3 rounded-lg font-semibold
+                 hover:bg-green-800 hover:scale-105 transition-all duration-300 shadow-lg">
+          Predict FWI
+        </button>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- Results -->
+  {% if results %}
+  <section class="max-w-7xl mx-auto px-6 pb-12 fade-in">
+    <div class="bg-white shadow-xl rounded-xl p-8">
+      <h2 class="text-2xl font-bold mb-6 text-center">Prediction Results</h2>
+
+      <div class="grid md:grid-cols-4 gap-6 text-center">
+        {% for model, value in results.items() %}
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-xl transition">
+          <h3 class="font-semibold capitalize">{{ model }}</h3>
+          <p class="text-xl font-bold text-green-700">{{ value }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-10 text-center">
+
+      <p class="text-lg font-semibold text-white">Sambhav Surthi</p>
+      <p class="text-sm mt-1">Machine Learning Engineer</p>
+
+      <!-- Links -->
+      <div class="flex justify-center space-x-6 mt-4">
+
+        <!-- Email -->
+        <a href="mailto:2300031622cseelge@gmail.com" class="hover:text-white transition" title="Email">
+          📧
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/sambhavsurthi" target="_blank"
+           class="hover:text-white transition" title="LinkedIn">
+          🔗
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/SambhavSurthi" target="_blank"
+           class="hover:text-white transition" title="GitHub">
+          🐙
+        </a>
+
+        <!-- Website -->
+        <a href="https://sambhavsurthi.in" target="_blank"
+           class="hover:text-white transition" title="Portfolio Website">
+          🌐
+        </a>
+
+      </div>
+      <p class="text-sm mt-1">
+        Algerian Forest Fires Prediction using Flask, Scikit-learn & AWS
+      </p>
+
+      <p class="text-xs mt-6 text-gray-400">
+        © 2026 | Algerian Forest Fires Prediction System
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
