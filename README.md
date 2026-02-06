@@ -6,7 +6,7 @@ A complete end-to-end machine learning project with Flask web application and AW
 
 This project predicts the **Fire Weather Index (FWI)** using environmental and meteorological data from two Algerian regions:
 - **Bejaia Region**
-- **Sidi-Bel Abbes Region**
+- **Sidi-Bel Abbes Regions**
 
 The system includes:
 - **Data Analysis**: Jupyter notebook with comprehensive EDA using ydata-profiling
